@@ -8,6 +8,8 @@ RUN git clone https://github.com/ICGC-TCGA-PanCancer/pcawg-minibam.git /pcawg-mi
 
 RUN apt-get install -y python-pip
 
+RUN pip install cwltool==1.0.20170217172322
+
 RUN apt-get update && apt-get install -y software-properties-common && apt-get install -y python-software-properties
 RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
