@@ -31,7 +31,11 @@ RUN git clone https://github.com/baminou/SongAdpater.git /songadapter
 
 RUN pip install -e /icgconnect
 RUN pip install -r /songadapter/requirements.txt
+RUN pip install overture_song
 
+RUN mkdir /scripts
+RUN wget https://raw.githubusercontent.com/baminou/scripts/master/generate_song_payload.py -O /scripts/generate_song_payload.py
+RUN chmod +x /scripts/generate_song_payload.py
 
 RUN wget https://artifacts.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/song-client/[RELEASE]/song-client-[RELEASE]-dist.tar.gz
 RUN mkdir /song-client
@@ -42,3 +46,4 @@ RUN export SING_HOME="/song-client"
 ENV PATH="/icgc-storage-client/bin:${PATH}"
 ENV PATH="/songadapter/:${PATH}"
 ENV PATH="/song-client/bin/:${PATH}"
+ENV PATH="/scripts/:${PATH}"
