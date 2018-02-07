@@ -7,6 +7,7 @@ RUN wget -m ftp://ftp.ncbi.nlm.nih.gov/sra/reports/Assembly/GRCh37-HG19_Broad_va
 RUN git clone https://github.com/ICGC-TCGA-PanCancer/pcawg-minibam.git /pcawg-minibam
 
 RUN apt-get install -y python-pip
+RUN apt-get install -y python3-pip
 
 RUN pip install cwltool==1.0.20170217172322
 RUN pip install --upgrade cwltool
@@ -31,7 +32,7 @@ RUN git clone https://github.com/baminou/SongAdpater.git /songadapter
 
 RUN pip install -e /icgconnect
 RUN pip install -r /songadapter/requirements.txt
-RUN pip install overture_song
+RUN pip3 install overture_song
 
 RUN mkdir /scripts
 RUN wget https://raw.githubusercontent.com/baminou/scripts/master/generate_song_payload.py -O /scripts/generate_song_payload.py
