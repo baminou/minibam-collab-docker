@@ -35,7 +35,9 @@ RUN pip install overture_song
 
 RUN mkdir /scripts
 RUN wget https://raw.githubusercontent.com/baminou/scripts/master/generate_song_payload.py -O /scripts/generate_song_payload.py
+RUN wget https://raw.githubusercontent.com/baminou/scripts/master/upload_with_song.py
 RUN chmod +x /scripts/generate_song_payload.py
+RUN chmod +x /scripts/upload_with_song.py
 
 RUN wget https://artifacts.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/song-client/[RELEASE]/song-client-[RELEASE]-dist.tar.gz
 RUN mkdir /song-client
